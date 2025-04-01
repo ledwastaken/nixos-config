@@ -11,7 +11,6 @@
     ];
 
   # Bootloader.
-  #boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
@@ -61,7 +60,7 @@
 
   # Enable i3
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.ly.enable = true;
   services.xserver.windowManager.i3.enable = true;
 
   # Enable sound
@@ -85,7 +84,7 @@
   users.users.louis = {
     isNormalUser = true;
     description = "Louis";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -97,24 +96,50 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    tree
+    nnn
+    flameshot
 
     libgcc
     gcc
     man-pages
     man-pages-posix
+    gnumake
+
+    pkg-config
+    glew
+    freeglut
+
+    (python3.withPackages (python-pkgs: with python-pkgs; [
+      numpy
+      pandas
+      requests
+    ]))
 
     firefox
     alacritty
-    polybar
+    picom
     pulseaudio
     feh
 
+    discord
     blender
     vscode
+    maven
+    lombok
+    openjdk17-bootstrap
+    jetbrains.idea-ultimate
   ];
 
   # Enable OpenGL
   hardware.graphics.enable = true;
+
+  # Enable Docker in rootless mode
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
