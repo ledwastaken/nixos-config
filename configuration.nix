@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -60,8 +59,8 @@
 
   # Enable i3
   services.xserver.enable = true;
-  services.displayManager.ly.enable = true;
   services.xserver.windowManager.i3.enable = true;
+  services.displayManager.ly.enable = true;
 
   # Enable sound
   services.pipewire = {
@@ -83,7 +82,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.louis = {
     isNormalUser = true;
-    description = "Louis";
+    description = "Louis L";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
@@ -91,54 +90,118 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.gpu-screen-recorder.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    git
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
     tree
-    nnn
+    git
+    git-lfs
+    feh
+    firefox
+    firefox-bin
+    discord
+    neovim
+    alacritty
+    pulseaudio
+    geteduroam
+    pcmanfm
+    rofi
+    ripgrep
     flameshot
+    xclip
+    xsel
+    gpu-screen-recorder-gtk
+    gpu-screen-recorder
+    intel-media-driver
+    ffmpeg
+    imagemagick
+    parallel
 
-    libgcc
     gcc
     man-pages
-    man-pages-posix
-    gnumake
-
-    pkg-config
-    glew
-    freeglut
+    clang-tools
 
     (python3.withPackages (python-pkgs: with python-pkgs; [
+      notebook
       numpy
+      scipy
+      matplotlib
+      scikit-learn
+      pillow
+      jupyter
+      scikit-image
       pandas
-      requests
+      tensorflow
+      torch
+      torchvision
+      lime
     ]))
 
-    firefox
-    alacritty
-    picom
-    pulseaudio
-    feh
-
-    discord
+    godot
+    aseprite
     blender
+    steam-run
+    teams-for-linux
+
+    cargo
+    unzip
+    nodejs_24
+
     vscode
-    maven
-    lombok
-    openjdk17-bootstrap
-    jetbrains.idea-ultimate
+    vscodium
+    wmctrl
+    xorg.xprop
+    sshfs
+    autossh
+
+    texlive.combined.scheme-full
+    pdftk
+
+    opencode
+    obsidian
   ];
 
-  # Enable OpenGL
-  hardware.graphics.enable = true;
-
-  # Enable Docker in rootless mode
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
+  services.picom = {
     enable = true;
-    setSocketVariable = true;
+    backend = "glx";
+    fade = true;
+    fadeDelta = 3;
+  };
+
+  services.openssh.enable = true;
+
+  services.xserver.displayManager.sessionCommands = ''
+    feh --bg-scale ~/.config/celestial-glow.jpg
+  '';
+
+  programs.steam.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  hardware.opengl = {
+    enable = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      mesa.drivers
+      intel-media-driver # for TigerLake (Xe)
+      vaapiIntel         # legacy Intel VAAPI (still useful fallback)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
+  virtualisation.docker = {
+    # Consider disabling the system wide Docker daemon
+    enable = false;
+
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -166,6 +229,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
