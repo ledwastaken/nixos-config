@@ -17,6 +17,7 @@
       ./modules/system/display.nix
       ./modules/system/audio.nix
       ./modules/system/users.nix
+      ./modules/system/nix.nix
     ];
 
   # Enable CUPS to print documents.

@@ -10,7 +10,4 @@
       discord
     ];
   };
-
-  # Allow unfree packages such as Discord.
-  nixpkgs.config.allowUnfree = true;
 }
