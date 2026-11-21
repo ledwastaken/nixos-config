@@ -16,6 +16,7 @@
       ./modules/system/i18n.nix
       ./modules/system/display.nix
       ./modules/system/audio.nix
+      ./modules/system/users.nix
     ];
 
   # Enable CUPS to print documents.
@@ -23,15 +24,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.alice = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     tree
-  #   ];
-  # };
 
   # programs.firefox.enable = true;
 
