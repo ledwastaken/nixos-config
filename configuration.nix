@@ -14,10 +14,8 @@
       ./modules/system/networking.nix
       ./modules/system/time.nix
       ./modules/system/i18n.nix
+      ./modules/system/display.nix
     ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
