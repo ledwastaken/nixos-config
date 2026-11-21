@@ -1,8 +1,7 @@
+# Boot loader configuration (GRUB/UEFI).
 { ... }:
 
 {
-  # Use GRUB in UEFI mode instead of the previous systemd-boot setup.
-
   # Allow NixOS to register/update the GRUB entry in the firmware.
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;
