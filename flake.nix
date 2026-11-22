@@ -20,6 +20,7 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
+            backupFileExtension = "backup";
             users.louis = import ./home.nix;
           };
         }

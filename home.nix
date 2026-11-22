@@ -15,6 +15,17 @@
     };
   };
 
+  xsession.windowManager.i3 = {
+    enable = true;
+    config = {
+      # FIXME
+    };
+
+    extraConfig = ''
+      title_align center
+    '';
+  };
+
   home.packages = with pkgs; [
     discord
     vscodium
