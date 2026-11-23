@@ -22,6 +22,10 @@
       ./modules/system/packages.nix
     ];
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+  ];
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
