@@ -5,6 +5,8 @@
   home.username = "louis";
   home.homeDirectory = "/home/louis";
 
+  programs.feh.enable = true;
+
   programs.git = {
     enable = true;
     settings = {
