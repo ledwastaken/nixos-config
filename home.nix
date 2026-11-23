@@ -17,6 +17,8 @@
 
   xsession.windowManager.i3.enable = true;
 
+  home.file.".config/i3/config".source = ./i3/config;
+
   home.packages = with pkgs; [
     discord
     vscodium
