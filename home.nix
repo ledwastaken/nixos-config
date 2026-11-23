@@ -17,6 +17,8 @@
     };
   };
 
+  services.picom.enable = true;
+
   xsession.windowManager.i3.enable = true;
 
   home.file.".config/i3/config".source = ./i3/config;
