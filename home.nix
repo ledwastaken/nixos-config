@@ -5,6 +5,11 @@
   home.username = "louis";
   home.homeDirectory = "/home/louis";
 
+  programs.alacritty = {
+     enable = true;
+     theme = "gruvbox_dark";
+  };
+
   programs.feh.enable = true;
 
   programs.git = {
