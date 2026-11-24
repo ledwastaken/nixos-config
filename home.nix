@@ -24,6 +24,11 @@
 
   services.picom.enable = true;
 
+  services.polybar = {
+    enable = true;
+    script = "";
+  };
+
   xsession.windowManager.i3.enable = true;
 
   home.file.".config/i3/config".source = ./i3/config;
