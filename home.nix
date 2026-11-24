@@ -8,6 +8,22 @@
   programs.alacritty = {
      enable = true;
      theme = "gruvbox_dark";
+     settings = {
+       window = {
+         opacity = 0.8;
+         padding = {
+           x = 2;
+           y = 2;
+         };
+       };
+       font = {
+         normal = {
+           family = "JetBrainsMono Nerd Font";
+           style = "Regular";
+         };
+         size = 6.0;
+       };
+     };
   };
 
   programs.feh.enable = true;
