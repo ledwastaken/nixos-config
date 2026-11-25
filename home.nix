@@ -38,6 +38,11 @@
     };
   };
 
+  programs.opencode = {
+    enable = true;
+    cli.theme.name = "system";
+  };
+
   programs.vscodium = {
     enable = true;
     profiles.default.extensions = [];
