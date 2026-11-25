@@ -187,6 +187,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale $HOME/.config/wallpapers/asian-urban-mystery.jpg
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #8e8e8e #8e8e8e #000000 #8e8e8e   #8e8e8e
