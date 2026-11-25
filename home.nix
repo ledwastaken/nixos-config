@@ -38,6 +38,11 @@
     };
   };
 
+  programs.vscodium = {
+    enable = true;
+    profiles.default.extensions = [];
+  };
+
   services.picom.enable = true;
 
   services.polybar = {
@@ -54,7 +59,6 @@
 
   home.packages = with pkgs; [
     discord
-    vscodium
   ];
 
   # This value determines the Home Manager release that your
