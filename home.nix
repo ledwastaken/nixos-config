@@ -45,7 +45,9 @@
 
   programs.vscodium = {
     enable = true;
-    profiles.default.extensions = [];
+    profiles.default.extensions = with pkgs.vscode-extensions; [
+      rust-lang.rust-analyzer
+    ];
   };
 
   services.picom.enable = true;
