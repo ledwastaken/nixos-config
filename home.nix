@@ -49,6 +49,7 @@
       rust-lang.rust-analyzer
       jnoortheen.nix-ide
       tamasfe.even-better-toml
+      vscodevim.vim
     ];
   };
 
