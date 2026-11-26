@@ -64,6 +64,7 @@
 
   home.packages = with pkgs; [
     discord
+    scrot
   ];
 
   # This value determines the Home Manager release that your
