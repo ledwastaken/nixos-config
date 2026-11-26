@@ -45,12 +45,15 @@
 
   programs.vscodium = {
     enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      rust-lang.rust-analyzer
-      jnoortheen.nix-ide
-      tamasfe.even-better-toml
-      vscodevim.vim
-    ];
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        rust-lang.rust-analyzer
+        jnoortheen.nix-ide
+        tamasfe.even-better-toml
+        vscodevim.vim
+      ];
+      userSettings = ./vscodium/settings.json;
+    };
   };
 
   services.picom.enable = true;
