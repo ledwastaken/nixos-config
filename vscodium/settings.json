@@ -1,0 +1,8 @@
+{
+	"workbench.colorTheme": "Dark Modern",
+	"terminal.integrated.initialHint": false,
+	"editor.rulers": [
+		100
+	],
+	"editor.minimap.enabled": false
+}
