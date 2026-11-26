@@ -47,6 +47,7 @@
     enable = true;
     profiles.default.extensions = with pkgs.vscode-extensions; [
       rust-lang.rust-analyzer
+      jnoortheen.nix-ide
     ];
   };
 
