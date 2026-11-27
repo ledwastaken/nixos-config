@@ -36,6 +36,10 @@
         email = "ledwastaken@proton.me";
       };
     };
+    signing = {
+      format = "ssh";
+      signByDefault = true;
+    };
   };
 
   programs.opencode = {
